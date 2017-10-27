@@ -22,8 +22,8 @@ var geocodeAddress = (address) => {
         });
     };
 
-geocodeAddress('000000').then((location) => {
+geocodeAddress('19146').then((location) => {
     console.log(JSON.stringify(location, undefined, 2));
-}, (errorMessage) => {
+}, (errorMessage) =>{
     console.log(errorMessage);
 });
