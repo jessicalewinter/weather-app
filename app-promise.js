@@ -15,9 +15,13 @@ const argv = yargs.
   .help()
   .alias('help', 'h')
   .argv;
-
   var addressAPI = encodeURIComponent(argv.address);
-  var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressAPI}`;
+
+  if(addressAPI){
+    var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressAPI}`;
+  }else{
+    var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=Central%20Park`;
+  }
 
   axios.get(geocodeUrl).then((response) => {
       if(response.data.status === 'ZERO_RESULTS'){
@@ -33,7 +37,11 @@ const argv = yargs.
   }).then((response) => {
       var temperature = response.data.currently.temperature;  
       var apparentTemperature = response.data.currently.apparentTemperature;  
-      console.log(`Today is fucking hot. It's only ${temperature} but it feels like ${apparentTemperature}`);
+      console.log(`It's only ${temperature} but it feels like ${apparentTemperature}`);
+
+      var sky = response.data.currently.summary;
+      console.log(`Today the sky looks like: ${sky}`);
+
   }).catch((error) => {
       if(error.code === 'ENOTFOUND'){
         console.log('Unable to connect to API servers.');
