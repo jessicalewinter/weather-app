@@ -7,11 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{pageTitle}}</h1>
-    <p>{{welcomeTitle}}</p>
 
-    <footer>
-        <p>{{currentYear}}</p>
-    </footer>
+    {{> header}}
+    <p>{{screamIt welcomeTitle}}</p>
+    {{> footer}}
+
 </body>
 </html>
