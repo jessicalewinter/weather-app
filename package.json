@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha **/*.test.js",
     "start": "node server.js"
   },
   "author": "",
@@ -23,5 +23,8 @@
     "url": "https://github.com/jessicalewinter/weather-app/issues"
   },
   "homepage": "https://github.com/jessicalewinter/weather-app#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
 }
