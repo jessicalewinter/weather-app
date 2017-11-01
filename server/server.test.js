@@ -10,7 +10,7 @@ describe('Server', () => {
                 .get('/')
                 .expect(404)
                 .expect((res) => {
-                    expect(res.body).toMatchObject({
+                    expect(res.body).toInclude({
                         error: 'Page not found.'
                     })
                 })
@@ -24,7 +24,7 @@ describe('Server', () => {
                 .get('/users')
                 .expect(200)
                 .expect((res) => {
-                    expect(res.body).toMatchObject({
+                    expect(res.body).toInclude({
                         name: 'Jessica',
                         age: 23
                     })

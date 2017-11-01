@@ -45,7 +45,7 @@ describe('Utils', () => {
             var user = {location:'Brazil', age: 23};
             var res = utils.setName( user,'Jessica Lewinter');
         
-            expect(res).toMatchObject({
+            expect(res).toInclude({
                 firstName: 'Jessica',
                 lastName: 'Lewinter'
             })
